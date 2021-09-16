@@ -2,7 +2,7 @@ import {
   GeogIdentifier,
   GeographyType,
   GeogTypeDescriptor,
-} from '../wprdc-components';
+} from '@wprdc/test-components';
 
 export const DEFAULT_GEOG: GeogIdentifier = {
   id: 104,
