@@ -1,0 +1,67 @@
+.container {
+  @apply flex-grow;
+  @apply lg:min-h-0 lg:grid lg:grid-cols-12;
+  @apply overflow-x-hidden;
+}
+
+.navMenu {
+  @apply flex-1 flex shadow-lg md:border-b lg:border-r lg:border-b-0;
+  /* on medium screens, it's horizontal */
+  @apply flex-col md:flex-row lg:flex-col;
+
+  @apply md:col-span-12 md:row-span-1 md:w-full;
+  @apply lg:col-span-4 xl:col-span-3;
+}
+
+.content {
+  @apply flex flex-col;
+  @apply md:col-span-12 lg:col-span-8 xl:col-span-9;
+  @apply md:flex-grow;
+  @apply lg:overflow-y-hidden;
+}
+
+/* Navmenu parts */
+.geoMenu {
+  @apply flex-shrink p-3 pb-0;
+}
+
+.map {
+  @apply flex-grow;
+}
+
+/* Content parts */
+.geogContainer {
+  @apply py-3 pl-2 shadow-md border-b;
+}
+
+.taxonomyContainer {
+  @apply p-2.5;
+  @apply flex-grow overflow-y-auto;
+}
+
+.cta {
+  @apply font-bold text-2xl;
+}
+
+.menuItem {
+  @apply flex align-middle items-center mt-4;
+}
+
+.labelText {
+  @apply m-0 font-semibold text-xs text-gray-700 uppercase block;
+}
+
+.dropdown {
+  @apply ml-3 py-1 flex-grow;
+}
+
+.stepNumber {
+  @apply text-gray-700 font-bold text-4xl;
+}
+
+.orBreak {
+  @apply text-gray-400 p-0.5 font-medium italic;
+}
+
+.navTabs {
+}

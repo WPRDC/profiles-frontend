@@ -1,0 +1,22 @@
+.wrapper {
+  @apply w-full h-16 flex-none bg-secondary-200 p-2 flex shadow-lg;
+}
+
+.branding {
+}
+
+.filler {
+  @apply flex-grow;
+}
+
+.title {
+  @apply text-xl font-bold;
+}
+
+.subtitle {
+  @apply text-sm italic;
+}
+
+.menu {
+  @apply flex justify-center align-middle flex-col;
+}

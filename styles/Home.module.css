@@ -1,0 +1,64 @@
+.main {
+  @apply flex-grow w-screen justify-center items-center flex flex-col;
+}
+
+.hero {
+  @apply w-full relative h-80;
+}
+
+.titleSection {
+  @apply absolute h-80 w-full;
+  @apply flex flex-col items-center justify-center;
+}
+
+.welcome {
+  @apply lg:w-2/3;
+}
+
+.title {
+  @apply font-bold;
+  @apply text-3xl md:text-5xl lg:text-6xl xl:text-7xl;
+}
+
+.subtitle {
+  @apply mt-3.5 w-3/6;
+  @apply text-lg lg:text-2xl;
+}
+
+.heroSection {
+  @apply absolute h-80 w-full;
+  @apply flex flex-col items-end justify-end;
+  @apply overflow-hidden;
+}
+
+.heroImgDiv {
+  @apply lg:w-1/2;
+  @apply absolute;
+  top: -30%;
+  z-index: -1;
+}
+
+.heroImg {
+}
+
+.bigButton {
+  @apply cursor-pointer shadow-lg hover:shadow-2xl;
+  @apply w-48 h-48 border border-black rounded;
+}
+
+.buttonTitle {
+  @apply font-bold text-xl;
+  @apply p-2.5;
+}
+
+.buttonText {
+  @apply p-2.5;
+}
+
+.description {
+  @apply text-lg text-center;
+}
+
+.content {
+  @apply w-2/3 p-2.5;
+}
