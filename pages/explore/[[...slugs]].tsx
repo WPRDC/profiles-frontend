@@ -7,7 +7,6 @@ import styles from '../../styles/Explorer.module.css';
 import {
   ConnectedGeographySection,
   DataVizBase,
-  DataVizID,
   GeogIdentifier,
   GeogTypeDescriptor,
   Indicator,
@@ -28,7 +27,6 @@ import {
 
 import { DEFAULT_GEOG, MENU_LAYERS } from '../../settings';
 import { useRouter } from 'next/router';
-import { dom } from '@typescript-eslint/scope-manager/dist/lib/dom';
 
 export default function Home() {
   const [taxonomy, setTaxonomy] = useState<Taxonomy>(null);
@@ -60,7 +58,7 @@ export default function Home() {
     context.fetchAndSetGeog(geogID);
   }
 
-  function handleExploreDataViz(dataViz: DataVizBase) {
+  function handleExploreDataViz(dataViz: DataVizBase): void {
     router.push(
       `/explore/${domainSlug}/${subdomainSlug}/${indicatorSlug}/${dataViz.slug}`,
       undefined,
@@ -70,7 +68,7 @@ export default function Home() {
     );
   }
 
-  function handleExploreIndicator(indicator: Indicator) {
+  function handleExploreIndicator(indicator: Indicator): void {
     let domain: string, subdomain: string;
     if (!!indicator.hierarchies && !!indicator.hierarchies.length) {
       domain = indicator.hierarchies[0].domain.slug;
@@ -83,6 +81,10 @@ export default function Home() {
         shallow: true,
       },
     );
+  }
+
+  function handleTabChange(domain: string): void {
+    router.push(`/explore/${domain}`, undefined, { shallow: true });
   }
 
   useEffect(() => {
@@ -172,6 +174,7 @@ export default function Home() {
           currentDataVizSlug={dataVizSlug}
           onExploreDataViz={handleExploreDataViz}
           onExploreIndicator={handleExploreIndicator}
+          onTabsChange={handleTabChange}
           LinkComponent={Link}
         />
       </div>

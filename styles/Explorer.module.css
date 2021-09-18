@@ -31,11 +31,11 @@
 
 /* Content parts */
 .geogContainer {
-  @apply py-3 pl-2 shadow-md border-b;
+  @apply py-3 px-4 shadow-md border-b;
 }
 
 .taxonomyContainer {
-  @apply p-2.5;
+  @apply p-4;
   @apply flex-grow overflow-y-auto;
 }
 
