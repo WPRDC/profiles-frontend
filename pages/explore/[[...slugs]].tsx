@@ -6,6 +6,7 @@ import styles from '../../styles/Explorer.module.css';
 
 import {
   ConnectedGeographySection,
+  DataVizBase,
   DataVizID,
   GeogIdentifier,
   GeogTypeDescriptor,
@@ -59,9 +60,9 @@ export default function Home() {
     context.fetchAndSetGeog(geogID);
   }
 
-  function handleExploreDataViz(dataViz: DataVizID) {
+  function handleExploreDataViz(dataViz: DataVizBase) {
     router.push(
-      `/explore/${domainSlug}/${domainSlug}/${indicatorSlug}/${dataViz.slug}`,
+      `/explore/${domainSlug}/${subdomainSlug}/${indicatorSlug}/${dataViz.slug}`,
       undefined,
       {
         shallow: true,
