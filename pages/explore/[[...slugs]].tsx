@@ -106,6 +106,10 @@ export default function Home() {
     return new Set();
   }, [geogType]);
 
+  const GeogSearchBox = useMemo(() => {
+    return makeGeogSearchBox(geogType.id);
+  }, [geogType]);
+
   if (!taxonomy) return <div />;
 
   //  todo: show little popup if path is wrong
