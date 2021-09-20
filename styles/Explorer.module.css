@@ -1,4 +1,10 @@
 .container {
+  @apply flex-grow;
+  @apply lg:min-h-0 lg:grid lg:grid-cols-12;
+  @apply overflow-x-hidden;
+}
+
+.navMenu {
   @apply flex-1 flex shadow-lg md:border-b lg:border-r lg:border-b-0;
   /* on medium screens, it's horizontal */
   @apply flex-col md:flex-row lg:flex-col;
@@ -25,7 +31,7 @@
 
 /* Content parts */
 .geogContainer {
-  @apply py-3 px-4 shadow-md border-b;
+  @apply py-3 pl-4 shadow-md border-b;
 }
 
 .taxonomyContainer {
