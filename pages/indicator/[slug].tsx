@@ -16,8 +16,10 @@ export default function IndicatorPage() {
     <div className="p-3 flex-grow">
       <ConnectedIndicatorView
         indicatorSlug={slug}
-        geogIdentifier={{
-          id: '104',
+        geog={{
+          id: 104,
+          name: 'Allegheny',
+          title: 'Allegheny County',
           geogType: GeographyType.County,
           geogID: '42003',
         }}
