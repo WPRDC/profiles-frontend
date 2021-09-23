@@ -7,8 +7,9 @@ import styles from '../../styles/Explorer.module.css';
 import {
   ConnectedGeographySection,
   DataVizBase,
+  GeogBrief,
   GeogIdentifier,
-  GeogTypeDescriptor,
+  GeogLevel,
   Indicator,
   Item,
   LayerPanelVariant,
@@ -18,6 +19,7 @@ import {
   MapEventExtras,
   ProfilesAPI,
   Select,
+  serializeParams,
   Tabs,
   Taxonomy,
   TaxonomySection,
@@ -30,7 +32,7 @@ import { useRouter } from 'next/router';
 
 export default function Home() {
   const [taxonomy, setTaxonomy] = useState<Taxonomy>(null);
-  const [geogType, setGeogType] = useState<GeogTypeDescriptor>(MENU_LAYERS[0]);
+  const [geogType, setGeogType] = useState<GeogLevel>(MENU_LAYERS[0]);
   const [pathSlugs, setPathSlugs] = useState<string[]>([]);
   const context = useProvider();
   const { width } = useWindowSize();
@@ -54,17 +56,22 @@ export default function Home() {
 
   const [domainSlug, subdomainSlug, indicatorSlug, dataVizSlug] = pathSlugs;
 
-  function handleGeogSelection(geogID: GeogIdentifier) {
-    context.fetchAndSetGeog(geogID);
+  useEffect(() => {
+    const { geogType, geogID } = router.query;
+    context.fetchAndSetGeog({ geogType, geogID } as GeogIdentifier);
+  }, [router.query]);
+
+  function handleGeogSelection(geog: GeogBrief) {
+    const { geogType, geogID } = geog;
+    const path = router.asPath.split('?')[0];
+    router.push(`${path}/${serializeParams({ geogType, geogID })}`);
   }
 
   function handleExploreDataViz(dataViz: DataVizBase): void {
     router.push(
-      `/explore/${domainSlug}/${subdomainSlug}/${indicatorSlug}/${dataViz.slug}`,
-      undefined,
-      {
-        shallow: true,
-      },
+      `/explore/${domainSlug}/${subdomainSlug}/${indicatorSlug}/${
+        dataViz.slug
+      }/${serializeParams(router.query)}`,
     );
   }
 
@@ -75,16 +82,18 @@ export default function Home() {
       subdomain = indicator.hierarchies[0].subdomain.slug;
     }
     router.push(
-      `/explore/${domain}/${subdomain}/${indicator.slug}`,
-      undefined,
-      {
-        shallow: true,
-      },
+      `/explore/${domain}/${subdomain}/${indicator.slug}/${serializeParams(
+        router.query,
+      )}`,
     );
   }
 
   function handleTabChange(domain: string): void {
-    router.push(`/explore/${domain}`, undefined, { shallow: true });
+    router.push(
+      `/explore/${domain}/${serializeParams(router.query)}`,
+      undefined,
+      { shallow: true },
+    );
   }
 
   useEffect(() => {
@@ -175,7 +184,7 @@ export default function Home() {
           onExploreDataViz={handleExploreDataViz}
           onExploreIndicator={handleExploreIndicator}
           onTabsChange={handleTabChange}
-          LinkComponent={Link}
+          LinkComponent={(props) => <Link {...props} />}
         />
       </div>
     </div>

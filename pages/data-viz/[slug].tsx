@@ -21,6 +21,7 @@ export default function DataVizPage() {
       <ConnectedDataViz
         variant={DataVizVariant.Details}
         dataVizSlug={slug}
+        showGeog
         geogIdentifier={{
           id: '104',
           geogType: GeographyType.County,

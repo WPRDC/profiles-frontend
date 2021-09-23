@@ -9,6 +9,7 @@
 .titleSection {
   @apply absolute h-80 w-full;
   @apply flex flex-col items-center justify-center;
+  @apply bg-white bg-opacity-30;
 }
 
 .welcome {
@@ -29,12 +30,6 @@
   @apply absolute h-80 w-full;
   @apply flex flex-col items-end justify-end;
   @apply overflow-hidden;
-}
-
-.heroImgDiv {
-  @apply lg:w-1/2;
-  @apply absolute;
-  top: -30%;
   z-index: -1;
 }
 
@@ -43,7 +38,7 @@
 
 .bigButton {
   @apply cursor-pointer shadow-lg hover:shadow-2xl;
-  @apply w-48 h-48 border border-black rounded;
+  @apply w-56 h-48 border border-black rounded;
 }
 
 .buttonTitle {
@@ -61,4 +56,38 @@
 
 .content {
   @apply w-2/3 p-2.5;
+}
+
+.menu {
+  @apply mt-3;
+}
+
+.appsMenu {
+  @apply grid grid-cols-3 gap-4;
+  @apply mb-6 mt-2;
+}
+
+.toolsMenu {
+  @apply mb-6 mt-2;
+  @apply grid grid-cols-4 gap-2;
+}
+
+.toolButton {
+  @apply cursor-pointer shadow-lg hover:shadow-2xl;
+  @apply w-56 h-32 border border-black rounded;
+}
+
+.toolButtonTitle {
+  @apply font-bold text-lg;
+  @apply p-2;
+}
+
+.toolButtonText {
+  @apply text-sm;
+  @apply px-2;
+}
+
+.sectionTitle {
+  @apply text-2xl font-semibold text-center;
+  @apply mt-2;
 }
