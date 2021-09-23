@@ -22,8 +22,10 @@ export default function DataVizPage() {
         variant={DataVizVariant.Details}
         dataVizSlug={slug}
         showGeog
-        geogIdentifier={{
-          id: '104',
+        geog={{
+          id: 104,
+          name: 'Allegheny',
+          title: 'Allegheny County',
           geogType: GeographyType.County,
           geogID: '42003',
         }}

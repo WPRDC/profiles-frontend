@@ -184,7 +184,7 @@ export default function Home() {
           onExploreDataViz={handleExploreDataViz}
           onExploreIndicator={handleExploreIndicator}
           onTabsChange={handleTabChange}
-          LinkComponent={(props) => <Link {...props} />}
+          LinkComponent={Link}
         />
       </div>
     </div>
