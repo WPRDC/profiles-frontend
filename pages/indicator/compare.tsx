@@ -3,6 +3,7 @@ import {
   ConnectedGeographySection,
   GeogBrief,
   GeographyPicker,
+  GeographyType,
   Indicator,
   IndicatorSearchBox,
   IndicatorView,
@@ -28,16 +29,18 @@ export default function IndicatorComparisonPage() {
       } = router.query;
       if (geogTypeA && geogIDA)
         ProfilesAPI.requestGeogDetails({
-          geogType: geogTypeA,
-          geogID: geogIDA,
-        }).then(setGeogA);
+          geogType: geogTypeA as GeographyType,
+          geogID: geogIDA as string,
+        }).then(({ data }) => setGeogA(data));
       if (geogTypeB && geogIDB)
         ProfilesAPI.requestGeogDetails({
-          geogType: geogTypeB,
-          geogID: geogIDB,
-        }).then(setGeogB);
+          geogType: geogTypeB as GeographyType,
+          geogID: geogIDB as string,
+        }).then(({ data }) => setGeogB(data));
       if (indicatorSlug)
-        ProfilesAPI.requestIndicator(indicatorSlug).then(setIndicator);
+        ProfilesAPI.requestIndicator(indicatorSlug as string).then(({ data }) =>
+          setIndicator(data),
+        );
     }
   }, [router.query]);
 
